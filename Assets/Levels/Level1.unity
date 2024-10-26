@@ -183,7 +183,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.3737836
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -338,8 +338,8 @@ Transform:
   m_GameObject: {fileID: 1089085845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0225, y: -4.3851, z: 0}
-  m_LocalScale: {x: 9.430378, y: 0.77377534, z: 0.5}
+  m_LocalPosition: {x: 0.0291, y: -5.5019, z: 0}
+  m_LocalScale: {x: 11.982738, y: 0.9656799, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -356,6 +356,7 @@ GameObject:
   - component: {fileID: 1790032265}
   - component: {fileID: 1790032268}
   - component: {fileID: 1790032267}
+  - component: {fileID: 1790032269}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -502,6 +503,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.79, y: 1.97}
   m_EdgeRadius: 0
+--- !u!114 &1790032269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790032264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f14a4ad1d90448408d739de408e717a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  jumpSpeed: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

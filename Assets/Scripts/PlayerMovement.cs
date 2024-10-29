@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerAnimator.SetBool("isRunning", horizontal != 0);
         playerAnimator.SetBool("isGrounded", IsGrounded());
+        playerAnimator.SetBool("isOnWall", IsTouchingWall());
 
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
@@ -104,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsTouchingWall()
     {
+
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 

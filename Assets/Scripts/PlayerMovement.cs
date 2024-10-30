@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -19,10 +20,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform wallCheck;
 
     [SerializeField] private Transform bounceCheck;
+
     private bool isFacingRight = true;
 
     private Rigidbody2D rb;
     private Animator playerAnimator;
+
+    private PlayerCloneManager playerCloneManager;
+
+    private GameObject activeGameObject;
 
     private BoxCollider2D boxCollider;
 
@@ -45,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
+        playerCloneManager = GetComponent<PlayerCloneManager>();
 
     }
     void Update()
@@ -86,6 +93,30 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        //CLONE LOGIC
+        if (playerCloneManager != null)
+        {
+            GameObject clone = playerCloneManager.GetCurrentClone();
+            if (clone != null)
+            {
+                if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift))
+                {
+                    if (activeGameObject != clone)
+                    {
+                        activeGameObject = clone;
+                        Debug.Log("Active game object: " + activeGameObject.name);
+                    }
+                    else
+                    {
+                        activeGameObject = gameObject;
+                        Debug.Log("Active game object: " + activeGameObject.name);
+                    }
+                }
+            }
+        }
+
+
 
     }
 
@@ -175,4 +206,6 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+
 }

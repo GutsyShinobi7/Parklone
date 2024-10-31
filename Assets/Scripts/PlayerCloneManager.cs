@@ -5,13 +5,19 @@ public class PlayerCloneManager : MonoBehaviour
 {
     [SerializeField] private GameObject clonePrefab; // Assign the clone prefab in the Inspector
     private GameObject currentClone; // Holds the current clone instance
+    private PlayerMovement playerMovement;
+
+    private void Awake() {
+        playerMovement = GetComponent<PlayerMovement>();
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
             ToggleClone();
-        }
+        } 
+        
     }
 
     void ToggleClone()
@@ -33,6 +39,7 @@ public class PlayerCloneManager : MonoBehaviour
 
     IEnumerator PlayAndDestroy(GameObject clone)
     {
+        
         Vector3 clonePosition =currentClone.transform.position;
         Animator animator = clone.GetComponent<Animator>();
         animator.Play("Squirrel_Poof");

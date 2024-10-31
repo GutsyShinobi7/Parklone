@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform wallCheck;
 
+    [SerializeField] private Transform groundCheck;
+
     [SerializeField] private Transform bounceCheck;
 
     private bool isFacingRight = true;
@@ -27,8 +29,6 @@ public class PlayerMovement : MonoBehaviour
     private Animator playerAnimator;
 
     private PlayerCloneManager playerCloneManager;
-
-    private GameObject activeGameObject;
 
     private BoxCollider2D boxCollider;
 
@@ -46,52 +46,65 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 13f);
 
+    private bool isActiveGameObject;
+
+    private bool switchButtonPressed;
+
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
         playerCloneManager = GetComponent<PlayerCloneManager>();
+        isActiveGameObject = true;
+        switchButtonPressed = false;
+
 
     }
     void Update()
     {
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        playerAnimator.SetBool("isRunning", horizontal != 0);
-        playerAnimator.SetBool("isGrounded", IsGrounded());
-        playerAnimator.SetBool("isOnWall", IsTouchingWall());
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (isActiveGameObject)
         {
-            playerAnimator.SetTrigger("jumpTrigger");
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
+
+            horizontal = Input.GetAxisRaw("Horizontal");
+
+            playerAnimator.SetBool("isRunning", horizontal != 0);
+            playerAnimator.SetBool("isGrounded", IsGrounded());
+            playerAnimator.SetBool("isOnWall", IsTouchingWall());
+
+            if (Input.GetButtonDown("Jump") && IsGrounded())
+            {
+                playerAnimator.SetTrigger("jumpTrigger");
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            }
 
 
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            playerAnimator.SetTrigger("jumpTrigger");
-            rb.gravityScale = jumpingGravity;
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
-        }
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                playerAnimator.SetTrigger("jumpTrigger");
+                rb.gravityScale = jumpingGravity;
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
+            }
 
-        if (rb.velocity.y < 0)
-        {
-            rb.gravityScale = fallingGravity;
-        }
+            if (rb.velocity.y < 0)
+            {
+                rb.gravityScale = fallingGravity;
+            }
 
-        if (IsGrounded())
-        {
-            rb.gravityScale = 3f;
-        }
+            if (IsGrounded())
+            {
+                rb.gravityScale = 3f;
+            }
 
-        WallSlide();
-        WallJump();
+            WallSlide();
+            WallJump();
 
-        if (!isWallJumping)
-        {
-            Flip();
+            if (!isWallJumping)
+            {
+                Flip();
+            }
+
         }
 
         //CLONE LOGIC
@@ -100,22 +113,42 @@ public class PlayerMovement : MonoBehaviour
             GameObject clone = playerCloneManager.GetCurrentClone();
             if (clone != null)
             {
-                if (Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.LeftShift))
+                if (!switchButtonPressed)
                 {
-                    if (activeGameObject != clone)
+                    isActiveGameObject = false;
+                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                    print("Player is not active game object is being triggered in every update");
+                }
+
+                if (Input.GetKeyDown(KeyCode.RightShift))
+                {
+                    switchButtonPressed = true;
+
+                    if (isActiveGameObject)
                     {
-                        activeGameObject = clone;
-                        Debug.Log("Active game object: " + activeGameObject.name);
+                        isActiveGameObject = false;
+                        clone.GetComponent<PlayerMovement>().enabled = true;
+                        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                        clone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                        print("Player is not active game object is being triggered in every update");
                     }
                     else
                     {
-                        activeGameObject = gameObject;
-                        Debug.Log("Active game object: " + activeGameObject.name);
+                        isActiveGameObject = true;
+                        clone.GetComponent<PlayerMovement>().enabled = false;
+                        clone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                        rb.constraints = RigidbodyConstraints2D.None;
+                        print("Player is active game object is being triggered in every update");
                     }
                 }
             }
-        }
+            else
+            {
+                isActiveGameObject = true;
+                rb.constraints = RigidbodyConstraints2D.None;
+            }
 
+        }
 
 
     }
@@ -130,8 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private bool IsTouchingWall()

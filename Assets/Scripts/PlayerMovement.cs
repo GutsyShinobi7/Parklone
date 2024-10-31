@@ -146,6 +146,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 isActiveGameObject = true;
                 rb.constraints = RigidbodyConstraints2D.None;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+                ;
             }
 
         }

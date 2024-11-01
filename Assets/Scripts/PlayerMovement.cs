@@ -39,6 +39,13 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isWallJumping;
 
+    private float coyoteTime = 0.2f;
+    private float coyoteTimeCounter;
+
+    private float jumpBufferTime = 0.2f;
+
+    private float jumpBufferCounter;
+
     private float wallJumpingTime = 0.2f;
 
     private float wallJumpingCounter;
@@ -88,10 +95,23 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("isGrounded", IsGrounded());
             playerAnimator.SetBool("isOnWall", IsTouchingWall());
 
-            if (Input.GetButtonDown("Jump") && IsGrounded())
+            if(IsGrounded()){
+                coyoteTimeCounter = coyoteTime;
+            } else {
+                coyoteTimeCounter -= Time.deltaTime;
+            }
+
+            if(Input.GetButtonDown("Jump")){
+                jumpBufferCounter = jumpBufferTime;
+            } else {
+                jumpBufferCounter -= Time.deltaTime;
+            }
+
+            if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
             {
                 playerAnimator.SetTrigger("jumpTrigger");
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                jumpBufferCounter = 0f;
             }
 
 
@@ -267,11 +287,15 @@ public class PlayerMovement : MonoBehaviour
     private IEnumerator Dash(){
         canDash = false;
         isDashing = true;
+        if(IsGrounded() && playerAnimator.GetBool("isRunning")){
+            playerAnimator.SetBool("isRunning", true);
+        }
         float originalGravity = rb.gravityScale;
         rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
+         playerAnimator.SetBool("isRunning", false);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;

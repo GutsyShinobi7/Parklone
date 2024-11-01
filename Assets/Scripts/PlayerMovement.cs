@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform bounceCheck;
 
+    [SerializeField] private TrailRenderer tr;
+
     private bool isFacingRight = true;
 
     private Rigidbody2D rb;
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerCloneManager playerCloneManager;
 
     private BoxCollider2D boxCollider;
+
 
     private bool isWallSliding;
 
@@ -50,6 +53,14 @@ public class PlayerMovement : MonoBehaviour
 
     private bool switchButtonPressed;
 
+    //teleportation variables
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 12f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+
+
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
@@ -66,6 +77,10 @@ public class PlayerMovement : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         if (isActiveGameObject)
         {
+
+            if(isDashing){
+                return;
+            }
 
             horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -105,6 +120,10 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
 
+            if(Input.GetKeyDown(KeyCode.LeftShift) && canDash){
+                StartCoroutine(Dash());
+            }
+
         }
 
         //CLONE LOGIC
@@ -120,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
                     print("Player is not active game object is being triggered in every update");
                 }
 
-                if (Input.GetKeyDown(KeyCode.RightShift))
+                if (Input.GetKeyDown(KeyCode.F))
                 {
                     switchButtonPressed = true;
 
@@ -156,7 +175,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   
+        if (isDashing)
+        {
+            return;
+        }
         if (!isWallJumping)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -239,6 +262,21 @@ public class PlayerMovement : MonoBehaviour
             localScale.x *= -1f;
             transform.localScale = localScale;
         }
+    }
+
+    private IEnumerator Dash(){
+        canDash = false;
+        isDashing = true;
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0f;
+        rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        rb.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 
 

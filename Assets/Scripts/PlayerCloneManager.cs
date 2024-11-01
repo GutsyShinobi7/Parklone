@@ -17,7 +17,7 @@ public class PlayerCloneManager : MonoBehaviour
         {
             ToggleClone();
         } 
-        
+
     }
 
     void ToggleClone()

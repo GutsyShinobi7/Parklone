@@ -1,64 +1,101 @@
 using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerCloneManager : MonoBehaviour
 {
     [SerializeField] private GameObject clonePrefab; // Assign the clone prefab in the Inspector
-    private GameObject currentClone; // Holds the current clone instance
-    private PlayerMovement playerMovement;
 
-    private void Awake() {
-        playerMovement = GetComponent<PlayerMovement>();
-    }
 
-    void Update()
+
+    private GameObject cloneHolder;
+
+    private int existingClones;
+
+    private void Awake()
     {
+        existingClones = 0;
+        cloneHolder = null;
+    }
+    private void Update()
+    {
+
         if (Input.GetKeyDown(KeyCode.C))
         {
-            ToggleClone();
-        } 
+            print("C key pressed");
+            print("ExistingClones: " + existingClones);
+            if (existingClones == 0)
+            {
+                if (cloneHolder == null)
+                {
 
-    }
 
-    void ToggleClone()
-    {
-        if (currentClone == null)
-        {
-            // Spawn the clone at the player’s position
-            currentClone = Instantiate(clonePrefab, transform.position + new Vector3(-Mathf.Sign(transform.localScale.x) + 2, 0, 0), transform.rotation);
-            currentClone.GetComponent<Animator>().SetTrigger("jumpTrigger");
-            currentClone.GetComponent<Rigidbody2D>().velocity = new Vector2(currentClone.GetComponent<Rigidbody2D>().velocity.x, 10f);
+                    InstantiateClone();
+                    existingClones++;
+                    print("Instantiated clone");
+                }
+
+            }
+            else if (existingClones == 1)
+            {
+                StartCoroutine(PlayAnimation());
+                //DestroyClone();
+                print("Destroyed clone");
+
+            }
 
         }
-        else
-        {
-            // Destroy the existing clone
-            StartCoroutine(PlayAndDestroy(currentClone));
-        }
     }
 
-    IEnumerator PlayAndDestroy(GameObject clone)
+    private void InstantiateClone()
     {
-        
-        Vector3 clonePosition =currentClone.transform.position;
-        Animator animator = clone.GetComponent<Animator>();
-        animator.Play("Squirrel_Poof");
-
-        // Wait one frame to ensure the animation has started
-        yield return null;
-
-        // Now wait for the animation length before destroying
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-
-        Destroy(clone);
-        currentClone = null;
-        //recall player to clone position'
-        yield return null;
-        gameObject.transform.position = clonePosition;
+        cloneHolder = Instantiate(clonePrefab, transform.position + (Vector3.right * 2), transform.rotation);
+        cloneHolder.GetComponent<Animator>().SetTrigger("jumpTrigger");
     }
 
-    public GameObject GetCurrentClone()
+
+    private void DestroyClone()
     {
-        return currentClone;
+        Destroy(cloneHolder);
     }
+
+
+    private IEnumerator PlayAnimation()
+    {
+        print("PlayAnimationAndDestroy accessed");
+        // Play the animation (assuming you have a trigger called "PlayAnimation")
+        cloneHolder.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        cloneHolder.GetComponent<Animator>().Play("Squirrel_Poof");
+
+        // Wait for the animation to finish
+        existingClones--;
+        yield return new WaitForSeconds(cloneHolder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+        // Destroy the clone
+        DestroyClone();
+
+    }
+
+    public bool cloneExists()
+    {
+        return cloneHolder != null;
+    }
+
+    public void disableClonePlayerMovement(){
+        GetComponent<PlayerMovement>().enabled = false;
+    }
+
+    public void enableClonePlayerMovement(){
+        GetComponent<PlayerMovement>().enabled = true;
+    }
+
+    public void freezeRigidbody(){
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+
+    public void unFreezeRigidbody(){
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+    }
+
+
 }

@@ -39,14 +39,15 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isWallJumping;
 
+    private bool doubleJump;
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
-    private float jumpBufferTime = 0.2f;
+    private float jumpBufferTime = 0.1f;
 
     private float jumpBufferCounter;
 
-    private float wallJumpingTime = 0.2f;
+    private float wallJumpingTime = 0.1f;
 
     private float wallJumpingCounter;
 
@@ -82,44 +83,49 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        playerAnimator.SetBool("isRunning", horizontal != 0);
+        playerAnimator.SetBool("isGrounded", IsGrounded());
+        playerAnimator.SetBool("isOnWall", IsTouchingWall());
+
         if (isActiveGameObject)
         {
 
-            if(isDashing){
+            if (isDashing)
+            {
                 return;
             }
 
             horizontal = Input.GetAxisRaw("Horizontal");
 
-            playerAnimator.SetBool("isRunning", horizontal != 0);
-            playerAnimator.SetBool("isGrounded", IsGrounded());
-            playerAnimator.SetBool("isOnWall", IsTouchingWall());
-
-            if(IsGrounded()){
+            if (IsGrounded())
+            {
                 coyoteTimeCounter = coyoteTime;
-            } else {
+            }
+            else
+            {
                 coyoteTimeCounter -= Time.deltaTime;
             }
 
-            if(Input.GetButtonDown("Jump")){
+            if (Input.GetButtonDown("Jump"))
+            {
                 jumpBufferCounter = jumpBufferTime;
-            } else {
+            }
+            else
+            {
                 jumpBufferCounter -= Time.deltaTime;
             }
 
-            if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f)
+            if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0f)
             {
                 playerAnimator.SetTrigger("jumpTrigger");
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 jumpBufferCounter = 0f;
             }
 
-
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             {
-                playerAnimator.SetTrigger("jumpTrigger");
-                rb.gravityScale = jumpingGravity;
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.7f);
+                coyoteTimeCounter = 0f;
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
             }
 
             if (rb.velocity.y < 0)
@@ -140,62 +146,43 @@ public class PlayerMovement : MonoBehaviour
                 Flip();
             }
 
-            if(Input.GetKeyDown(KeyCode.LeftShift) && canDash){
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
                 StartCoroutine(Dash());
             }
 
+
         }
 
-        //CLONE LOGIC
-        if (playerCloneManager != null)
+        if (Input.GetKeyDown(KeyCode.C))
         {
-            GameObject clone = playerCloneManager.GetCurrentClone();
-            if (clone != null)
+            if (playerCloneManager != null)
             {
-                if (!switchButtonPressed)
-                {
-                    isActiveGameObject = false;
+                print("switch button pressed");
+                if (playerCloneManager.cloneExists())
+                {   
+                    print("Clone exists");
+                    playerCloneManager.enableClonePlayerMovement();
+                    playerCloneManager.unFreezeRigidbody();
                     rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                    print("Player is not active game object is being triggered in every update");
+                    isActiveGameObject = false;
                 }
-
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    switchButtonPressed = true;
-
-                    if (isActiveGameObject)
-                    {
-                        isActiveGameObject = false;
-                        clone.GetComponent<PlayerMovement>().enabled = true;
-                        rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                        clone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                        print("Player is not active game object is being triggered in every update");
-                    }
-                    else
-                    {
-                        isActiveGameObject = true;
-                        clone.GetComponent<PlayerMovement>().enabled = false;
-                        clone.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-                        rb.constraints = RigidbodyConstraints2D.None;
-                        print("Player is active game object is being triggered in every update");
-                    }
+                else if (!playerCloneManager.cloneExists())
+                {   
+                    print("No clone exists");
+                    playerCloneManager.disableClonePlayerMovement();
+                    playerCloneManager.freezeRigidbody();
+                    rb.constraints = RigidbodyConstraints2D.None;
+                    isActiveGameObject = true;
                 }
             }
-            else
-            {
-                isActiveGameObject = true;
-                rb.constraints = RigidbodyConstraints2D.None;
-                rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-                ;
-            }
-
         }
 
 
     }
 
     private void FixedUpdate()
-    {   
+    {
         if (isDashing)
         {
             return;
@@ -208,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
     }
 
     private bool IsTouchingWall()
@@ -284,10 +271,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator Dash(){
+    private IEnumerator Dash()
+    {
         canDash = false;
         isDashing = true;
-        if(IsGrounded() && playerAnimator.GetBool("isRunning")){
+        if (IsGrounded() && playerAnimator.GetBool("isRunning"))
+        {
             playerAnimator.SetBool("isRunning", true);
         }
         float originalGravity = rb.gravityScale;
@@ -295,7 +284,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
         tr.emitting = true;
         yield return new WaitForSeconds(dashingTime);
-         playerAnimator.SetBool("isRunning", false);
+        playerAnimator.SetBool("isRunning", false);
         tr.emitting = false;
         rb.gravityScale = originalGravity;
         isDashing = false;

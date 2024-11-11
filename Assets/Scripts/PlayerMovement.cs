@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             {
                 coyoteTimeCounter = 0f;
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.6f);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.75f);
             }
 
             if (rb.velocity.y < 0)
@@ -349,7 +349,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         else
-        {   
+        {
             Vector2 toTeleportTo = playerCloneManager.getClonePosition();
             cloneExists = false;
             isActiveGameObject = true;
@@ -374,7 +374,8 @@ public class PlayerMovement : MonoBehaviour
         isActiveGameObject = value;
     }
 
-    public bool getActiveState(){
+    public bool getActiveState()
+    {
         return isActiveGameObject;
     }
 

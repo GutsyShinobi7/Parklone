@@ -17,30 +17,24 @@ public class PlayerCloneManager : MonoBehaviour
         existingClones = 0;
         cloneHolder = null;
     }
+    
     private void Update()
     {
-
+        print("Existing Clones: " + existingClones);
         if (Input.GetKeyDown(KeyCode.C))
         {
-            print("C key pressed");
-            print("ExistingClones: " + existingClones);
+
             if (existingClones == 0)
             {
                 if (cloneHolder == null)
                 {
-
-
                     InstantiateClone();
-                    existingClones++;
-                    print("Instantiated clone");
                 }
-
             }
             else if (existingClones == 1)
             {
                 StartCoroutine(PlayAnimation());
                 //DestroyClone();
-                print("Destroyed clone");
 
             }
 
@@ -51,11 +45,13 @@ public class PlayerCloneManager : MonoBehaviour
     {
         cloneHolder = Instantiate(clonePrefab, transform.position + (Vector3.right * 2), transform.rotation);
         cloneHolder.GetComponent<Animator>().SetTrigger("jumpTrigger");
+        existingClones++;
     }
 
 
     private void DestroyClone()
     {
+
         Destroy(cloneHolder);
     }
 
@@ -65,36 +61,45 @@ public class PlayerCloneManager : MonoBehaviour
         print("PlayAnimationAndDestroy accessed");
         // Play the animation (assuming you have a trigger called "PlayAnimation")
         cloneHolder.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        cloneHolder.GetComponent<PlayerMovement>().enabled = false;
+        cloneHolder.GetComponent<BoxCollider2D>().enabled = false;
         cloneHolder.GetComponent<Animator>().Play("Squirrel_Poof");
+
 
         // Wait for the animation to finish
         existingClones--;
         yield return new WaitForSeconds(cloneHolder.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-
         // Destroy the clone
         DestroyClone();
 
     }
 
-    public bool cloneExists()
+    public bool cloneCreated()
     {
-        return cloneHolder != null;
+        return existingClones == 0;
     }
 
-    public void disableClonePlayerMovement(){
-        GetComponent<PlayerMovement>().enabled = false;
+
+    public void disableClonePlayerMovement()
+    {
+        cloneHolder.GetComponent<PlayerMovement>().setActiveGameObject(false);
     }
 
-    public void enableClonePlayerMovement(){
-        GetComponent<PlayerMovement>().enabled = true;
+    public void enableClonePlayerMovement()
+    {
+        cloneHolder.GetComponent<PlayerMovement>().setActiveGameObject(true);
+        cloneHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        cloneHolder.GetComponent<BoxCollider2D>().enabled = true;
     }
 
-    public void freezeRigidbody(){
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+    public void freezeRigidbody()
+    {
+        cloneHolder.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
-    public void unFreezeRigidbody(){
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+    public void unFreezeRigidbody()
+    {
+        cloneHolder.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
     }
 
 

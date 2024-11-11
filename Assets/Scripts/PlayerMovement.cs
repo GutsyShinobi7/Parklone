@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isActiveGameObject;
 
-    private bool switchButtonPressed;
+    private bool cloneButtonPressed;
 
     //teleportation variables
     private bool canDash = true;
@@ -68,15 +68,27 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
+    public bool canToggleClone = true;
+    public float toggleCooldown = 1.0f;
+
+    private bool cloneExists = false;
+
 
     private void Awake()
     {
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         boxCollider = GetComponent<BoxCollider2D>();
-        playerCloneManager = GetComponent<PlayerCloneManager>();
+        if (tag == "Player")
+        {
+            playerCloneManager = GetComponent<PlayerCloneManager>();
+        }
+        else
+        {
+            playerCloneManager = null;
+        }
         isActiveGameObject = true;
-        switchButtonPressed = false;
+        cloneButtonPressed = false;
 
 
     }
@@ -151,51 +163,77 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(Dash());
             }
 
-
         }
 
-        if (Input.GetKeyDown(KeyCode.C))
+        // Set player to static only when inactive, on the ground, and stationary
+        if (!isActiveGameObject && rb.velocity.y == 0f && IsGrounded())
+        {
+            boxCollider.enabled = false;
+            rb.bodyType = RigidbodyType2D.Static;
+            playerAnimator.SetBool("isRunning", false);
+        }
+
+        // Toggle with key press
+        if (Input.GetKeyDown(KeyCode.C) && canToggleClone)
+        {
+
+            ToggleCloneState();
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.F))
         {
             if (playerCloneManager != null)
             {
-                print("switch button pressed");
-                if (playerCloneManager.cloneExists())
-                {   
-                    print("Clone exists");
-                    playerCloneManager.enableClonePlayerMovement();
-                    playerCloneManager.unFreezeRigidbody();
-                    rb.constraints = RigidbodyConstraints2D.FreezeAll;
-                    isActiveGameObject = false;
-                }
-                else if (!playerCloneManager.cloneExists())
-                {   
-                    print("No clone exists");
-                    playerCloneManager.disableClonePlayerMovement();
-                    playerCloneManager.freezeRigidbody();
-                    rb.constraints = RigidbodyConstraints2D.None;
-                    isActiveGameObject = true;
+                if (!playerCloneManager.cloneCreated())
+                {
+                    if (isActiveGameObject)
+                    {
+                        isActiveGameObject = false;
+                        playerCloneManager.enableClonePlayerMovement();
+                        playerCloneManager.unFreezeRigidbody();
+                    }
+                    else
+                    {
+                        print("Player is active game object");
+                        isActiveGameObject = true;
+                        rb.bodyType = RigidbodyType2D.Dynamic;
+                        boxCollider.enabled = true;
+                        playerCloneManager.disableClonePlayerMovement();
+                        playerCloneManager.freezeRigidbody();
+                        
+                    }
                 }
             }
+
         }
+
+
+
 
 
     }
 
+
+
     private void FixedUpdate()
     {
-        if (isDashing)
+        if (isActiveGameObject)
         {
-            return;
-        }
-        if (!isWallJumping)
-        {
-            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            if (isDashing)
+            {
+                return;
+            }
+            if (!isWallJumping)
+            {
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            }
         }
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.4f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.3f, groundLayer);
     }
 
     private bool IsTouchingWall()
@@ -292,5 +330,37 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
+    void ToggleCloneState()
+    {
+        if (playerCloneManager.cloneCreated())
+        {
+            isActiveGameObject = false;
+            rb.velocity = new Vector2(0, rb.velocity.y);
+
+        }
+        else
+        {
+            cloneExists = false;
+            isActiveGameObject = true;
+            boxCollider.enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+
+            // Start the cooldown only after destroying the clone
+            canToggleClone = false;
+            StartCoroutine(ResetToggleCooldown());
+        }
+    }
+
+    // Coroutine to reset the cooldown
+    private IEnumerator ResetToggleCooldown()
+    {
+        yield return new WaitForSeconds(toggleCooldown);
+        canToggleClone = true;
+    }
+
+    public void setActiveGameObject(bool value)
+    {
+        isActiveGameObject = value;
+    }
 
 }

@@ -239,7 +239,7 @@ Transform:
   m_GameObject: {fileID: 943126296}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.096, y: -0.576, z: 0}
+  m_LocalPosition: {x: -0.096, y: -0.458, z: 0}
   m_LocalScale: {x: 1.325, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -771,7 +771,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.51643735
+  m_Mass: 0.50570357
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -818,7 +818,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09858656, y: -0.20136628}
+  m_Offset: {x: -0.09858656, y: -0.19284496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -829,7 +829,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.629817, y: 0.81997997}
+  m_Size: {x: 0.629817, y: 0.8029373}
   m_EdgeRadius: 0
 --- !u!114 &1790032269
 MonoBehaviour:
@@ -862,6 +862,8 @@ MonoBehaviour:
   bounceCheck: {fileID: 2066567458}
   tr: {fileID: 1790032272}
   wallJumpingPower: {x: 8, y: 13}
+  canToggleClone: 1
+  toggleCooldown: 1
 --- !u!95 &1790032270
 Animator:
   serializedVersion: 5

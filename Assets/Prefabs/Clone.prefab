@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -7699362217300825166}
   m_Layer: 0
   m_Name: Clone
-  m_TagString: Untagged
+  m_TagString: Clone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0026504765, w: 0.9999965}
   m_LocalPosition: {x: -5.46, y: -4.39, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6228969798840943612}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1971242953, guid: 1eaa244d943a24d41b296296f980ce9b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09876328, y: -0.20906007}
+  m_Offset: {x: -0.09876329, y: -0.19487903}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -135,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.65450054, y: 0.83536756}
+  m_Size: {x: 0.65450054, y: 0.80700547}
   m_EdgeRadius: 0
 --- !u!50 &470889051111865828
 Rigidbody2D:
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.5467484
+  m_Mass: 0.5281854
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -195,6 +195,8 @@ MonoBehaviour:
   bounceCheck: {fileID: 3066898184524901352}
   tr: {fileID: -7699362217300825166}
   wallJumpingPower: {x: 8, y: 13}
+  canToggleClone: 1
+  toggleCooldown: 1
 --- !u!95 &4984651792485663929
 Animator:
   serializedVersion: 5
@@ -289,8 +291,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -313,8 +315,8 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 0
-      m_ColorSpace: -1
+      m_Mode: 1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 0

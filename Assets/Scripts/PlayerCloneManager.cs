@@ -82,12 +82,12 @@ public class PlayerCloneManager : MonoBehaviour
 
     public void disableClonePlayerMovement()
     {
-        cloneHolder.GetComponent<PlayerMovement>().setActiveGameObject(false);
+        cloneHolder.GetComponent<PlayerMovement>().setActiveState(false);
     }
 
     public void enableClonePlayerMovement()
     {
-        cloneHolder.GetComponent<PlayerMovement>().setActiveGameObject(true);
+        cloneHolder.GetComponent<PlayerMovement>().setActiveState(true);
         cloneHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
         cloneHolder.GetComponent<BoxCollider2D>().enabled = true;
     }
@@ -100,6 +100,11 @@ public class PlayerCloneManager : MonoBehaviour
     public void unFreezeRigidbody()
     {
         cloneHolder.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+    }
+
+    public Vector3 getClonePosition()
+    {
+        return cloneHolder.transform.position;
     }
 
 

@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -183,7 +184,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.4157276
+  orthographic size: 6.3868103
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -214,6 +215,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552f8432f18c54be39f2dcd2788fb183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1790032266}
 --- !u!1 &943126296
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +309,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011866212, y: -0.09499502}
+  m_Offset: {x: 0.011866093, y: -0.07128763}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -306,7 +320,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.7234545, y: 5.6126366}
+  m_Size: {x: 7.7234545, y: 5.6600513}
   m_EdgeRadius: 0
 --- !u!212 &1089085848
 SpriteRenderer:
@@ -369,8 +383,8 @@ Transform:
   m_GameObject: {fileID: 1089085845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: -5.69, z: 0}
-  m_LocalScale: {x: 3.694882, y: 0.25168905, z: 0.5}
+  m_LocalPosition: {x: 0.07, y: -7.92, z: 0}
+  m_LocalScale: {x: 3.694882, y: 1.0129225, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -750,7 +764,7 @@ Transform:
   m_GameObject: {fileID: 1790032264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.71, y: -4.38, z: 0}
+  m_LocalPosition: {x: -3.71, y: -4.518, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -971,18 +985,18 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.6784314, g: 0.30980393, b: 0.101960786, a: 1}
+      key1: {r: 0.9647059, g: 0.56078434, b: 0.21568628, a: 1}
+      key2: {r: 0.9607843, g: 0.7176471, b: 0.5176471, a: 0}
+      key3: {r: 0.9607843, g: 0.7176471, b: 0.5176471, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime1: 33153
+      ctime2: 65535
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
@@ -995,9 +1009,9 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0

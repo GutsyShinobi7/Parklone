@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isWallJumping;
 
-    private bool doubleJump;
+    private bool doubleJump = true;
     private float coyoteTime = 0.2f;
     private float coyoteTimeCounter;
 
@@ -72,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
     public float toggleCooldown = 1.0f;
 
     private bool cloneExists = false;
+
+
 
 
     private void Awake()
@@ -134,6 +136,13 @@ public class PlayerMovement : MonoBehaviour
                 jumpBufferCounter = 0f;
             }
 
+            if (tag == "Clone" && Input.GetButtonDown("Jump") && !IsGrounded() && doubleJump)
+            {
+                playerAnimator.SetTrigger("jumpTrigger");
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                doubleJump = false;
+            }
+
             if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             {
                 coyoteTimeCounter = 0f;
@@ -148,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
             if (IsGrounded())
             {
                 rb.gravityScale = 3f;
+                doubleJump = true;
             }
 
             WallSlide();
@@ -201,7 +211,7 @@ public class PlayerMovement : MonoBehaviour
                         boxCollider.enabled = true;
                         playerCloneManager.disableClonePlayerMovement();
                         playerCloneManager.freezeRigidbody();
-                        
+
                     }
                 }
             }
@@ -339,12 +349,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
         else
-        {
+        {   
+            Vector2 toTeleportTo = playerCloneManager.getClonePosition();
             cloneExists = false;
             isActiveGameObject = true;
             boxCollider.enabled = true;
             rb.bodyType = RigidbodyType2D.Dynamic;
-
+            transform.position = toTeleportTo;
             // Start the cooldown only after destroying the clone
             canToggleClone = false;
             StartCoroutine(ResetToggleCooldown());
@@ -358,9 +369,13 @@ public class PlayerMovement : MonoBehaviour
         canToggleClone = true;
     }
 
-    public void setActiveGameObject(bool value)
+    public void setActiveState(bool value)
     {
         isActiveGameObject = value;
+    }
+
+    public bool getActiveState(){
+        return isActiveGameObject;
     }
 
 }

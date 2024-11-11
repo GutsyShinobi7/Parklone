@@ -96,10 +96,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        playerAnimator.SetBool("isRunning", horizontal != 0);
-        playerAnimator.SetBool("isGrounded", IsGrounded());
-        playerAnimator.SetBool("isOnWall", IsTouchingWall());
+        if (Time.timeScale != 0)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+            playerAnimator.SetBool("isRunning", horizontal != 0);
+            playerAnimator.SetBool("isGrounded", IsGrounded());
+            playerAnimator.SetBool("isOnWall", IsTouchingWall());
+        }
 
         if (isActiveGameObject)
         {
@@ -163,9 +166,10 @@ public class PlayerMovement : MonoBehaviour
             WallSlide();
             WallJump();
 
-            if (!isWallJumping)
+            if (!isWallJumping && IsGrounded())
             {
-                Flip();
+                if (Time.timeScale != 0)
+                    Flip();
             }
 
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)

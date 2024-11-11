@@ -7,17 +7,20 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private Button pauseButton;
+    [SerializeField] private GameObject gameInstructions;
+    [SerializeField] private Button questionnaireButton;
     [SerializeField] private Button resumeButton;
     [SerializeField] private Button exitButton;
 
+    [SerializeField] private Button closeInstructionsButton;
+
     private void Start()
-    {   
+    {
         pauseMenu.SetActive(false);
         // Add listeners to the button's click events
-        if (pauseButton != null)
+        if (questionnaireButton != null)
         {
-            pauseButton.onClick.AddListener(OnPauseButtonClick);
+            questionnaireButton.onClick.AddListener(OnQuestionnaireButtonClick);
         }
         if (resumeButton != null)
         {
@@ -27,9 +30,14 @@ public class PauseMenu : MonoBehaviour
         {
             exitButton.onClick.AddListener(OnExitButtonClick);
         }
+
+        if (closeInstructionsButton != null)
+        {
+            closeInstructionsButton.onClick.AddListener(onCloseInstructionsButtonClick);
+        }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -39,24 +47,35 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                Pause();
+                pauseMenu.SetActive(true);
+                Time.timeScale = 0f;
             }
         }
     }
 
-    public void Pause()
+    private void Question()
     {
-        pauseMenu.SetActive(true);
+
+        if (gameInstructions.activeSelf)
+        {
+            pauseMenu.SetActive(true);
+            gameInstructions.SetActive(false);
+        }
+        else
+        {
+            pauseMenu.SetActive(false);
+            gameInstructions.SetActive(true);
+        }
         Time.timeScale = 0f;
     }
 
-    public void Resume()
+    private void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    public void Exit()
+    private void Exit()
     {
         Application.Quit();
 #if UNITY_EDITOR
@@ -65,9 +84,9 @@ public class PauseMenu : MonoBehaviour
     }
 
     // Method to be called when the pause button is clicked
-    private void OnPauseButtonClick()
+    private void OnQuestionnaireButtonClick()
     {
-        Pause();
+        OnQuestionnaireButtonClick();
     }
 
     // Method to be called when the resume button is clicked
@@ -82,12 +101,17 @@ public class PauseMenu : MonoBehaviour
         Exit();
     }
 
+    private void onCloseInstructionsButtonClick()
+    {
+        Question();
+    }
+
     private void OnDestroy()
     {
         // Clean up the listeners to avoid memory leaks
-        if (pauseButton != null)
+        if (questionnaireButton != null)
         {
-            pauseButton.onClick.RemoveListener(OnPauseButtonClick);
+            questionnaireButton.onClick.RemoveListener(OnQuestionnaireButtonClick);
         }
         if (resumeButton != null)
         {
@@ -96,6 +120,11 @@ public class PauseMenu : MonoBehaviour
         if (exitButton != null)
         {
             exitButton.onClick.RemoveListener(OnExitButtonClick);
+        }
+
+        if (closeInstructionsButton != null)
+        {
+            closeInstructionsButton.onClick.RemoveListener(onCloseInstructionsButtonClick);
         }
     }
 }

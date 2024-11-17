@@ -19,6 +19,7 @@ public class SwitchManager : MonoBehaviour
     {
         objectiveText.SetActive(false);
     }
+
     private void Update()
     {
 
@@ -35,31 +36,51 @@ public class SwitchManager : MonoBehaviour
 
         if (cloneHolder != null)
         {
-            if (cloneHolder.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
+            if (cloneHolder.GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
             {
-                print("Clone on Switch");
+                print("Clone on Switch 1");
                 GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.green;
                 cloneOnSwitch1 = true;
+                cloneOnSwitch2 = false;
+                if (GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color == Color.green)
+                {
+                    GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
-            else if (cloneHolder.GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
+            else if (cloneHolder.GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
             {
-                print("Clone on Switch");
+                print("Clone on Switch 2");
                 GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.green;
                 cloneOnSwitch2 = true;
+                cloneOnSwitch1 = false;
+                if (GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color == Color.green)
+                {
+                    GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.red;
+                }
             }
         }
 
-        if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
+        if (GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
         {
-            print("Player on Switch");
+            print("Player on Switch 1");
             GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.green;
             playerOnSwitch1 = true;
+            playerOnSwitch2 = false;
+            if (GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color == Color.green)
+            {
+                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.red;
+            }
         }
-        else if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
+        else if (GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
         {
-            print("Player on Switch");
+            print("Player on Switch 2");
             GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.green;
             playerOnSwitch2 = true;
+            playerOnSwitch1 = false;
+            if (GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color == Color.green)
+            {
+                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.red;
+            }
         }
 
         CheckBothSwitches();

@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerCloneManager playerCloneManager;
 
-    private BoxCollider2D boxCollider;
+    private PolygonCollider2D polygonCollider;
 
 
     private bool isWallSliding;
@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isActiveGameObject;
 
-    private bool cloneButtonPressed;
 
     //teleportation variables
     private bool canDash = true;
@@ -68,10 +67,6 @@ public class PlayerMovement : MonoBehaviour
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
-    public bool canToggleClone = true;
-    public float toggleCooldown = 1.0f;
-
-    private bool cloneExists = false;
 
 
 
@@ -80,17 +75,11 @@ public class PlayerMovement : MonoBehaviour
     {
         playerAnimator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
-        if (tag == "Player")
-        {
-            playerCloneManager = GetComponent<PlayerCloneManager>();
-        }
-        else
-        {
-            playerCloneManager = null;
-        }
+        polygonCollider = GetComponent<PolygonCollider2D>();
+
+
         isActiveGameObject = true;
-        cloneButtonPressed = false;
+
 
 
     }
@@ -102,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("isRunning", horizontal != 0);
             playerAnimator.SetBool("isGrounded", IsGrounded());
             playerAnimator.SetBool("isOnWall", IsTouchingWall());
+
         }
 
         if (isActiveGameObject)
@@ -182,49 +172,10 @@ public class PlayerMovement : MonoBehaviour
         // Set player to static only when inactive, on the ground, and stationary
         if (!isActiveGameObject && rb.velocity.y == 0f && IsGrounded())
         {
-            boxCollider.enabled = false;
+            polygonCollider.enabled = false;
             rb.bodyType = RigidbodyType2D.Static;
             playerAnimator.SetBool("isRunning", false);
         }
-
-        // Toggle with key press
-        if (Input.GetKeyDown(KeyCode.C) && canToggleClone)
-        {
-
-            ToggleCloneState();
-        }
-
-
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (playerCloneManager != null)
-            {
-                if (!playerCloneManager.cloneCreated())
-                {
-                    if (isActiveGameObject)
-                    {
-                        isActiveGameObject = false;
-                        playerCloneManager.enableClonePlayerMovement();
-                        playerCloneManager.unFreezeRigidbody();
-                    }
-                    else
-                    {
-                        print("Player is active game object");
-                        isActiveGameObject = true;
-                        rb.bodyType = RigidbodyType2D.Dynamic;
-                        boxCollider.enabled = true;
-                        playerCloneManager.disableClonePlayerMovement();
-                        playerCloneManager.freezeRigidbody();
-
-                    }
-                }
-            }
-
-        }
-
-
-
-
 
     }
 
@@ -344,34 +295,8 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    void ToggleCloneState()
-    {
-        if (playerCloneManager.cloneCreated())
-        {
-            isActiveGameObject = false;
-            rb.velocity = new Vector2(0, rb.velocity.y);
 
-        }
-        else
-        {
-            Vector2 toTeleportTo = playerCloneManager.getClonePosition();
-            cloneExists = false;
-            isActiveGameObject = true;
-            boxCollider.enabled = true;
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            transform.position = toTeleportTo;
-            // Start the cooldown only after destroying the clone
-            canToggleClone = false;
-            StartCoroutine(ResetToggleCooldown());
-        }
-    }
 
-    // Coroutine to reset the cooldown
-    private IEnumerator ResetToggleCooldown()
-    {
-        yield return new WaitForSeconds(toggleCooldown);
-        canToggleClone = true;
-    }
 
     public void setActiveState(bool value)
     {
@@ -381,6 +306,11 @@ public class PlayerMovement : MonoBehaviour
     public bool getActiveState()
     {
         return isActiveGameObject;
+    }
+
+    public bool GetIsGrounded()
+    {
+        return IsGrounded();
     }
 
 }

@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6447749428371173648}
   - component: {fileID: 8244390821098843145}
-  - component: {fileID: 7558056480951431790}
   - component: {fileID: 470889051111865828}
   - component: {fileID: 2941311490493040065}
   - component: {fileID: 4984651792485663929}
-  - component: {fileID: -7699362217300825166}
+  - component: {fileID: 7736928058071491845}
+  - component: {fileID: 5270060338002003591}
   m_Layer: 0
   m_Name: Clone
   m_TagString: Clone
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1121250140359713650}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.0026504765, w: 0.9999965}
-  m_LocalPosition: {x: -5.46, y: -4.39, z: 0}
+  m_LocalPosition: {x: -0.76, y: 4.6, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 1971242953, guid: 1eaa244d943a24d41b296296f980ce9b, type: 3}
   m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -92,51 +92,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7558056480951431790
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121250140359713650}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.09876329, y: -0.19487903}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.8125, y: 1.8125}
-    newSize: {x: 0.17, y: 0.34}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.65450054, y: 0.80700547}
-  m_EdgeRadius: 0
 --- !u!50 &470889051111865828
 Rigidbody2D:
   serializedVersion: 4
@@ -149,7 +104,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.5281854
+  m_Mass: 0.5454455
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
@@ -193,10 +148,11 @@ MonoBehaviour:
   wallCheck: {fileID: 6228969798840943612}
   groundCheck: {fileID: 7379750990062022620}
   bounceCheck: {fileID: 3066898184524901352}
-  tr: {fileID: -7699362217300825166}
+  tr: {fileID: 7736928058071491845}
   wallJumpingPower: {x: 8, y: 13}
   canToggleClone: 1
   toggleCooldown: 1
+  pixelsPerUnit: 16
 --- !u!95 &4984651792485663929
 Animator:
   serializedVersion: 5
@@ -218,7 +174,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!96 &-7699362217300825166
+--- !u!96 &7736928058071491845
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -239,7 +195,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -270,15 +226,15 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.49999946
-        inSlope: 0
-        outSlope: 0
+        value: 0.3999994
+        inSlope: -1.3614681
+        outSlope: -1.3614681
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.33333334
+        outWeight: 0.1517615
       - serializedVersion: 3
-        time: 1
+        time: 0.99729735
         value: 0
         inSlope: 0
         outSlope: 0
@@ -291,17 +247,17 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0, g: 1, b: 0, a: 1}
-      key1: {r: 0.43867922, g: 1, b: 0.43867922, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.35726985, g: 0.6886792, b: 0.2956123, a: 1}
+      key1: {r: 0.23102409, g: 0.8207547, b: 0.12001601, a: 1}
+      key2: {r: 0.35726985, g: 0.6886792, b: 0.2956123, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
-      ctime0: 30647
-      ctime1: 42598
-      ctime2: 0
+      ctime0: 1542
+      ctime1: 48380
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0
@@ -315,9 +271,9 @@ TrailRenderer:
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 2
+      m_Mode: 0
       m_ColorSpace: 0
-      m_NumColorKeys: 2
+      m_NumColorKeys: 3
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
@@ -331,6 +287,59 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!60 &5270060338002003591
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121250140359713650}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.8125, y: 1.8125}
+    newSize: {x: 0.17, y: 0.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5292063, y: 0.19611478}
+      - {x: -0.52504355, y: -0.084922284}
+      - {x: -0.53217936, y: -0.36969268}
+      - {x: -0.49339738, y: -0.4789458}
+      - {x: -0.41429678, y: -0.5997684}
+      - {x: 0.20048429, y: -0.59905165}
+      - {x: 0.19300914, y: -0.010373472}
+      - {x: 0.03802728, y: 0.18591106}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1833686426678656052
 GameObject:
   m_ObjectHideFlags: 0

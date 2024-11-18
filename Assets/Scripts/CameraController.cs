@@ -31,10 +31,15 @@ public class CameraController : MonoBehaviour
 
        
 
-        Transform activeGameObjectTransform = player;
+    
+            Transform activeGameObjectTransform = player;
             if (player.GetComponent<PlayerCloneManager>().DoesCloneExist())
             {
-               activeGameObjectTransform = GameObject.FindWithTag("Clone").transform;
+               if(!player.GetComponent<PlayerMovement>().getActiveState()){
+                   activeGameObjectTransform = GameObject.FindGameObjectWithTag("Clone").transform;
+               } else {
+                   activeGameObjectTransform = player;
+               }
             }
 
          targetPosition = new Vector3(activeGameObjectTransform.position.x, Mathf.Clamp(activeGameObjectTransform.position.y, backgroundImageYLowerBound + 1 + cameraYLength / 2, backgroundImageYUpperBound - 1 - cameraYLength / 2), activeGameObjectTransform.position.z) + offset;

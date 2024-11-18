@@ -21,9 +21,11 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform groundCheck;
 
-    [SerializeField] private Transform bounceCheck;
+    [SerializeField] private Transform feetContactPointCheck;
 
     [SerializeField] private TrailRenderer tr;
+
+
 
     private bool isFacingRight = true;
 
@@ -88,7 +90,6 @@ public class PlayerMovement : MonoBehaviour
         if (Time.timeScale != 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-            playerAnimator.SetBool("isRunning", horizontal != 0);
             playerAnimator.SetBool("isGrounded", IsGrounded());
             playerAnimator.SetBool("isOnWall", IsTouchingWall());
 
@@ -96,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isActiveGameObject)
         {
+            playerAnimator.SetBool("isRunning", horizontal != 0);
 
             if (isDashing)
             {
@@ -162,20 +164,14 @@ public class PlayerMovement : MonoBehaviour
                     Flip();
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && horizontal != 0)
             {
                 StartCoroutine(Dash());
             }
 
         }
 
-        // Set player to static only when inactive, on the ground, and stationary
-        if (!isActiveGameObject && rb.velocity.y == 0f && IsGrounded())
-        {
-            polygonCollider.enabled = false;
-            rb.bodyType = RigidbodyType2D.Static;
-            playerAnimator.SetBool("isRunning", false);
-        }
+        print("Feet touching ground: " + IsFeetTouchingGround());
 
     }
 
@@ -207,6 +203,38 @@ public class PlayerMovement : MonoBehaviour
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
+    private bool IsFeetTouchingGround()
+    {
+        return Physics2D.OverlapCapsule(
+       feetContactPointCheck.position,                        // Center position of the capsule
+       new Vector2(0.75f, 0.005f),              // Size (width and height) of the capsule
+       CapsuleDirection2D.Horizontal,                          // Capsule direction
+       0f,                                                   // Rotation in degrees
+       groundLayer                                            // Layer mask
+   );
+    }
+
+    //for debugging
+    private void OnDrawGizmos()
+    {
+        if (feetContactPointCheck != null)
+        {
+            Gizmos.color = Color.red; // Color of the capsule
+            Gizmos.DrawWireCube(feetContactPointCheck.position, new Vector3(0.75f, 0.005f, 0)); // Approximate visualization
+        }
+
+        if(groundCheck != null)
+        {
+            Gizmos.color = Color.red; // Color of the capsule
+            Gizmos.DrawWireCube(groundCheck.position, new Vector3(0.3f, 0.3f, 0)); // Approximate visualization
+        }
+
+        if (wallCheck != null)
+        {
+            Gizmos.color = Color.red; // Color of the capsule
+            Gizmos.DrawWireCube(wallCheck.position, new Vector3(0.2f, 0.2f, 0)); // Approximate visualization
+        }
+    }
 
     private void WallSlide()
     {
@@ -295,7 +323,7 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-
+    
 
 
     public void setActiveState(bool value)
@@ -312,5 +340,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return IsGrounded();
     }
+
+    public bool GetFeetTouchingGround()
+    {
+        return IsFeetTouchingGround();
+    }
+
 
 }

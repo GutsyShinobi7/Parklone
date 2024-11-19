@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && gameInstructions.activeSelf == false)
         {
             if (pauseMenu.activeSelf)
             {
@@ -55,9 +55,10 @@ public class PauseMenu : MonoBehaviour
 
     private void Question()
     {
-
+    
         if (gameInstructions.activeSelf)
-        {
+        {   
+
             pauseMenu.SetActive(true);
             gameInstructions.SetActive(false);
         }
@@ -86,7 +87,7 @@ public class PauseMenu : MonoBehaviour
     // Method to be called when the pause button is clicked
     private void OnQuestionnaireButtonClick()
     {
-        OnQuestionnaireButtonClick();
+        Question();
     }
 
     // Method to be called when the resume button is clicked

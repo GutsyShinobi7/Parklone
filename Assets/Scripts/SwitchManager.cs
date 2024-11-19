@@ -11,7 +11,10 @@ public class SwitchManager : MonoBehaviour
     private bool cloneOnSwitch1 = false;
     private bool cloneOnSwitch2 = false;
 
-    private GameObject cloneHolder; // Reference to the clone object
+    [SerializeField] private Sprite crankUp;
+    [SerializeField] private Sprite crankDown;
+
+
 
     [SerializeField] private GameObject objectiveText;
 
@@ -23,65 +26,71 @@ public class SwitchManager : MonoBehaviour
     private void Update()
     {
 
-        if (GameObject.FindGameObjectWithTag("Clone") != null)
-        {
-            cloneHolder = GameObject.FindGameObjectWithTag("Clone");
-            print("Clone Found");
-        }
-        else
-        {
-            cloneHolder = null;
-            print("Clone Not Found");
-        }
 
-        if (cloneHolder != null)
+
+
+        if (GetComponent<PlayerCloneManager>().DoesCloneExist())
         {
-            if (cloneHolder.GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
+            if (GameObject.FindGameObjectWithTag("Clone").GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
             {
-                print("Clone on Switch 1");
-                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.green;
-                cloneOnSwitch1 = true;
-                cloneOnSwitch2 = false;
-                if (GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color == Color.green)
-                {
-                    GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.red;
-                }
-            }
-            else if (cloneHolder.GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
-            {
-                print("Clone on Switch 2");
-                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.green;
+                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().sprite = crankDown;
+                print("Clone is on switch 2");
                 cloneOnSwitch2 = true;
+            }
+            else
+            {
+                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().sprite = crankUp;
+                print("Clone is not on switch 2");
+                cloneOnSwitch2 = false;
+            }
+
+            if (GameObject.FindGameObjectWithTag("Clone").GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
+            {
+                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().sprite = crankDown;
+                print("Clone is on switch 1");
+                cloneOnSwitch1 = true;
+            }
+            else
+            {
+                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().sprite = crankUp;
+                print("Clone is not on switch 1");
                 cloneOnSwitch1 = false;
-                if (GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color == Color.green)
-                {
-                    GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.red;
-                }
             }
         }
 
-        if (GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
+        if (!cloneOnSwitch1)
         {
-            print("Player on Switch 1");
-            GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.green;
-            playerOnSwitch1 = true;
-            playerOnSwitch2 = false;
-            if (GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color == Color.green)
+            if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch1")))
             {
-                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.red;
+                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().sprite = crankDown;
+                print("Player is on switch 1");
+                playerOnSwitch1 = true;
+            }
+            else
+            {
+                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().sprite = crankUp;
+                print("Player is not on switch 1");
+                playerOnSwitch1 = false;
             }
         }
-        else if (GetComponent<PolygonCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
+
+        if (!cloneOnSwitch2)
         {
-            print("Player on Switch 2");
-            GameObject.Find("Switch2").GetComponent<SpriteRenderer>().color = Color.green;
-            playerOnSwitch2 = true;
-            playerOnSwitch1 = false;
-            if (GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color == Color.green)
+            if (GetComponent<BoxCollider2D>().IsTouchingLayers(LayerMask.GetMask("Switch2")))
             {
-                GameObject.Find("Switch1").GetComponent<SpriteRenderer>().color = Color.red;
+                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().sprite = crankDown;
+                print("Player is on switch 2");
+                playerOnSwitch2 = true;
+            }
+            else
+            {
+                GameObject.Find("Switch2").GetComponent<SpriteRenderer>().sprite = crankUp;
+                print("Player is not on switch 2");
+                playerOnSwitch2 = false;
             }
         }
+
+
 
         CheckBothSwitches();
     }
@@ -96,6 +105,8 @@ public class SwitchManager : MonoBehaviour
             print("Both player and clone have activated both switches!");
             // Trigger the desired action or event here
             objectiveText.SetActive(true);
+            GetComponent<PlayerMovement>().setActiveState(false);
+            GameObject.FindGameObjectWithTag("Clone").GetComponent<PlayerMovement>().setActiveState(false);
             Time.timeScale = 0f;
         }
     }

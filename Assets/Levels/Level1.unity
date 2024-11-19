@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1442222667}
   gameInstructions: {fileID: 1800079657}
-  questionnaireButton: {fileID: 0}
+  questionnaireButton: {fileID: 305312794}
   resumeButton: {fileID: 2124497580}
   exitButton: {fileID: 209853636}
   closeInstructionsButton: {fileID: 634451832}
@@ -710,19 +710,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 305312795}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 151864308}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: Question
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &305312795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1205,6 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552f8432f18c54be39f2dcd2788fb183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  backgroundImage: {fileID: 0}
   player: {fileID: 1790032266}
 --- !u!1 &528227800
 GameObject:

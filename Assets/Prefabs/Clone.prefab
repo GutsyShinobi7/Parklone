@@ -61,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5b7aad43558b441479ba759ce92d1122, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,11 +83,11 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: 1971242953, guid: 1eaa244d943a24d41b296296f980ce9b, type: 3}
-  m_Color: {r: 0.22821665, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.17, y: 0.34}
+  m_Size: {x: 2.8125, y: 1.8125}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,10 +133,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+  wallSlidingSpeed: 2
   jumpingPower: 13
+  wallJumpingPower: {x: 8, y: 13}
   fallingGravity: 4.5
   jumpingGravity: 3.5
-  wallSlidingSpeed: 2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -150,7 +151,8 @@ MonoBehaviour:
   groundCheck: {fileID: 2336899092107640663}
   feetContactPointCheck: {fileID: 5008272864213500610}
   tr: {fileID: 1474858994416014076}
-  wallJumpingPower: {x: 8, y: 13}
+  jumpSFX: {fileID: 8300000, guid: 88a34771e9b554cca9c79baa4ba717d7, type: 3}
+  footStepsSFX: {fileID: 8300000, guid: 04f8a264261144de3849c2699f9ec4dd, type: 3}
 --- !u!95 &5985421272264732898
 Animator:
   serializedVersion: 5
@@ -322,7 +324,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.8125, y: 1.8125}
-    newSize: {x: 0.17, y: 0.34}
+    newSize: {x: 2.8125, y: 1.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -375,7 +377,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.8125, y: 1.8125}
-    newSize: {x: 0.17, y: 0.34}
+    newSize: {x: 2.8125, y: 1.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

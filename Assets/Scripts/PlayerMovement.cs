@@ -3,32 +3,48 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movement Variables")]
+
+    [Header("Speed Variables")]
     private float horizontal;
     [SerializeField] private float speed;
+
+    [SerializeField] private int wallSlidingSpeed;
     [SerializeField] private float jumpingPower;
+
+    [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 13f);
+
+
+    [Header("Gravity Variables")]
 
     [SerializeField] private float fallingGravity;
 
     [SerializeField] private float jumpingGravity;
 
-    [SerializeField] private int wallSlidingSpeed;
+    [Header("Layer Variables")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
 
     [SerializeField] private LayerMask bounceLayer;
 
+    [Header("Check Variables")]
     [SerializeField] private Transform wallCheck;
 
     [SerializeField] private Transform groundCheck;
 
     [SerializeField] private Transform feetContactPointCheck;
 
+    [Header("Transform")]
     [SerializeField] private TrailRenderer tr;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip jumpSFX;
 
+    [SerializeField] private AudioClip footStepsSFX;
 
     private bool isFacingRight = true;
 
+    #region Component Variables
     private Rigidbody2D rb;
     private Animator playerAnimator;
 
@@ -36,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
 
     private PolygonCollider2D polygonCollider;
 
+    #endregion
+
+    #region Jump Variables
 
     private bool isWallSliding;
 
@@ -57,17 +76,19 @@ public class PlayerMovement : MonoBehaviour
 
     private float wallJumpingDuration = 0.4f;
 
-    [SerializeField] private Vector2 wallJumpingPower = new Vector2(8f, 13f);
+    #endregion
 
     private bool isActiveGameObject;
 
 
-    //teleportation variables
+    #region Teleport Variables
     private bool canDash = true;
     private bool isDashing;
     private float dashingPower = 12f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
+
+    #endregion
 
 
 
@@ -125,7 +146,8 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0f)
-            {
+            {   
+                AudioController.instance.PlaySound(jumpSFX);
                 playerAnimator.SetTrigger("jumpTrigger");
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
                 jumpBufferCounter = 0f;
@@ -223,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.DrawWireCube(feetContactPointCheck.position, new Vector3(0.75f, 0.005f, 0)); // Approximate visualization
         }
 
-        if(groundCheck != null)
+        if (groundCheck != null)
         {
             Gizmos.color = Color.red; // Color of the capsule
             Gizmos.DrawWireCube(groundCheck.position, new Vector3(0.3f, 0.3f, 0)); // Approximate visualization
@@ -323,14 +345,13 @@ public class PlayerMovement : MonoBehaviour
         canDash = true;
     }
 
-    
+
 
 
     public void setActiveState(bool value)
     {
         isActiveGameObject = value;
     }
-
     public bool getActiveState()
     {
         return isActiveGameObject;
@@ -345,6 +366,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return IsFeetTouchingGround();
     }
+
+
+
 
 
 }

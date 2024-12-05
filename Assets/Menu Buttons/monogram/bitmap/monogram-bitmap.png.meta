@@ -1,0 +1,2076 @@
+fileFormatVersion: 2
+guid: 2a2128e8156fb410ea38e898e87a1431
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: monogram-bitmap_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 87
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c511e823d2f4384b8cf6d226369aae
+      internalID: 1258418135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 87
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ee5f2c066f1483eb6b0ad0b96158f6
+      internalID: -1389166166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_2
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 87
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 367515e4b4b84493c80d9b26f72c9ee4
+      internalID: -1238079505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_3
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 87
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe18bd0f229fc4bdb9aee3e149668120
+      internalID: 42684938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 87
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b33cbd011624479caac42ae42c99dbd
+      internalID: -1791661346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 86
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5921886aa81d64903b2d54f873ab9b43
+      internalID: 166763979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_6
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 87
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d788969ddcd495a9e6252cf8d0bcd0
+      internalID: -199343973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d3d8937d7dc241499cf5cc04c43b529
+      internalID: 1956521313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 866cdb87903f245ddac59635f32e7620
+      internalID: 550867679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_9
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01bd73a5122647afb27b70cfb91d392
+      internalID: -998850478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_10
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6761d8ce2ad9842bb828eed4977107cb
+      internalID: -1659691518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_11
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edbcf0caebceb42c58835178602a0ff2
+      internalID: 1801000447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_12
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064d52852611e423a98d40ae294b6afc
+      internalID: -1503569262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_13
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0c718da5fdd47e98799c26a8cd2821
+      internalID: -939591781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_14
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ff4d38738ebe4626bf9c9fa23da5c0d
+      internalID: 1808214303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_15
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfbe2009520574af5beda2cb1d5fc50b
+      internalID: 1169151732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_16
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 75
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc5781483e62403c8bd7014723322c1
+      internalID: 1837302411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_17
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 74
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfad4481b25c54bbf9090d90ee9cc9dc
+      internalID: -895828815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_18
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 76
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a730b903d9d6940fead7fddf65a427a5
+      internalID: 166045887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_19
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 75
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad4be388a1b74dd38512fd63116830a
+      internalID: -993837011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24631c9217d59404289c5a7fbe1a6288
+      internalID: -971818462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_21
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0d40e83a45241d8b1d7ab7f26488dc
+      internalID: 1442569725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_22
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc182212f9ed41b2a675a89eb7bfe99
+      internalID: 1259016870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_23
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9264c7b8d3a48b79a8d8cb8db0be55
+      internalID: -219380235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_24
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885d37917c99c423b8cabdac9b4b3a47
+      internalID: 554175473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_25
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c77b0b55f224198b3bf51af330f032
+      internalID: -725576201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_26
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb02ba03f3d974734b91d212e0b2c3eb
+      internalID: -209506893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_27
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d790569fd52b64a0f96f5f5e2ad353fb
+      internalID: 2141715725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_28
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2912a19e895f648a6a2c5645aa3107ef
+      internalID: -981610666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_29
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6289841c8ba5147f69a303133079ae59
+      internalID: -838658517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_30
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d9651cc26a042b58dc8acbc7cf36e2
+      internalID: -1484676650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_31
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df0ab372242546b39caf956362122d2
+      internalID: -337226448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_32
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5216c1fd0401b4c839578598da2e9f56
+      internalID: 105625611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_33
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6848c6bd9a9f4510bf997c97fccd6bb
+      internalID: 2076378601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_34
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 51
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66939bb79aa044052a82e0b427b66b3a
+      internalID: 1910436695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_35
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 63
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd468819ce67464b89c12d05085ae1a
+      internalID: 275893400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_36
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed1d9163ff9bd4ecd845ea20cd662f4e
+      internalID: 171413908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_37
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 50
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baef4d2f4a6914ba6b652d439874cdd5
+      internalID: 1909865964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_38
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d319457d1b5446188271f4b18025186
+      internalID: 1285158691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_39
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fa946b70c6fa40c8834fffce842cdac
+      internalID: 1453093395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_40
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90742f148506849aeaf5b5c5fd6b5fff
+      internalID: -866556956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_41
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 152771484565b4c9d88fb236e773abd0
+      internalID: -645208666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_42
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715866a8cbef548239e9f5e230062a06
+      internalID: 241182171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_43
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97a31b1314133431ca65990ab4d2f780
+      internalID: -1287710573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_44
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159037f58447f43559ce94161cd5af7f
+      internalID: 1957449269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_45
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81c00a37e14648d0a0a506a7e27c58a
+      internalID: -734833686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_46
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669bfa1029c1a4be68da1e912726ae6f
+      internalID: 820350192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_47
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 51
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae58b4d430a634420a2b8b57133fde73
+      internalID: 588162392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_48
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 39
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7f08e50bd4fe47bd8383b4bd2a5d6cb
+      internalID: 464173993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_49
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89b4074a2056740ada5e0443dc0cabff
+      internalID: 300234526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_50
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 39
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3429d17a85cd4e59b07cace988e0f9d
+      internalID: 1273801508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_51
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613054b8f4ddc48e6a0f484f091b567c
+      internalID: 1633298927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_52
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 39
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4f5aa064fe340a8af9db32e3dd1ad1
+      internalID: 1452142498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_53
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0e28617a97494cbaa6fef8fe9c50bf0
+      internalID: 2071735284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_54
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 37
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d86c04a577374fb28eb66f3f1e8a9a0
+      internalID: -2109329059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_55
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae3b51db4def424f9b1647508374d23
+      internalID: 1890826426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_56
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5fe531b1a694c9d96868608eaf0d58
+      internalID: 175399356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_57
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 37
+        width: 5
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7973b74ab326452ba17a60fc24302b6
+      internalID: -763734450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_58
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d37abb3c22234a70895cdd445291361
+      internalID: -2059037359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_59
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 17
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef958f23f77924d629c672e6058b66fa
+      internalID: 395717435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_60
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 39
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbdf12b2da5dd485e839fb37c2bc92e6
+      internalID: -1706758024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_61
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 39
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ee8b896d94a411eb693075f5228abf
+      internalID: 944845812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_62
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 39
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50679a0151ec745dba6c016ea76505a9
+      internalID: 62103385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_63
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 25
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb5700d9da2be45a68c80ab22e37f6c1
+      internalID: 302719437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_64
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 15
+        width: 5
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83033d72ce44c4867a7986848fc38d17
+      internalID: -1425284769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_65
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 27
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce37d978aedf844fa97a4357df938f08
+      internalID: -1420667575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_66
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 27
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc879e7c3276c45fda17a705d6674645
+      internalID: -1955510869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_67
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 27
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c384a5e2b4f7406396666eb4e100abd
+      internalID: -1053364348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_68
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 27
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c3d8228f3dc14bc89935ac77720c6b2
+      internalID: -64320042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_69
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 27
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ceff224210184d9e978e3a28baf10d8
+      internalID: 2088485457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_70
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 27
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74126311cd8f24d748fac31b18530bd5
+      internalID: 1475871122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_71
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 27
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec6544e4d930428db3bf1c65466d897
+      internalID: 2060909702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_72
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 25
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a487c775d1189493fb8ed5383d489a23
+      internalID: -1404656721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_73
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 27
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116918e092bbc49c9b596cbbe4da71dd
+      internalID: -1301660041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_74
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 15
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ca9d8f394184c1ab8a6a50a1b90c65
+      internalID: -1779026562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_75
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01a3c567e22043c5a000c1ea1e545a6
+      internalID: 1184374318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_76
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64b1bfe89f9d4461aa0e71d70289ca1b
+      internalID: -595553011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_77
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a070c6739ddcf4f36b7594b666f1a1dd
+      internalID: -1400289677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_78
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010691a84043c42258d2280500253d47
+      internalID: 576949197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_79
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 15
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eec6800b910e4a32a65df9485727921
+      internalID: 2093701276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_80
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 15
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eea42f1cfa3846139b92196306e3977
+      internalID: 1518868124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_81
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 15
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02fa4357523e49b18453476f70ac61c
+      internalID: -346911607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_82
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 5
+        width: 64
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0020bb8114bd947af941b2058d864b75
+      internalID: -752285454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_83
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 5
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8380c3b9b18354387a1dfc7e8c183d31
+      internalID: -376999160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_84
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 5
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99b575373ccb64e23add0f048d80a583
+      internalID: -1016681519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_85
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 3
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b445405ef968f4787a59564db3c3785e
+      internalID: -1173843344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_86
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 3
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 313b6baf4a5c840d48bebea68a0427ee
+      internalID: 1051949119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: monogram-bitmap_87
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 3
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4aff0f0ebd264ed39d3cbeb4524f51c
+      internalID: 554348502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      monogram-bitmap_0: 1258418135
+      monogram-bitmap_1: -1389166166
+      monogram-bitmap_10: -1659691518
+      monogram-bitmap_11: 1801000447
+      monogram-bitmap_12: -1503569262
+      monogram-bitmap_13: -939591781
+      monogram-bitmap_14: 1808214303
+      monogram-bitmap_15: 1169151732
+      monogram-bitmap_16: 1837302411
+      monogram-bitmap_17: -895828815
+      monogram-bitmap_18: 166045887
+      monogram-bitmap_19: -993837011
+      monogram-bitmap_2: -1238079505
+      monogram-bitmap_20: -971818462
+      monogram-bitmap_21: 1442569725
+      monogram-bitmap_22: 1259016870
+      monogram-bitmap_23: -219380235
+      monogram-bitmap_24: 554175473
+      monogram-bitmap_25: -725576201
+      monogram-bitmap_26: -209506893
+      monogram-bitmap_27: 2141715725
+      monogram-bitmap_28: -981610666
+      monogram-bitmap_29: -838658517
+      monogram-bitmap_3: 42684938
+      monogram-bitmap_30: -1484676650
+      monogram-bitmap_31: -337226448
+      monogram-bitmap_32: 105625611
+      monogram-bitmap_33: 2076378601
+      monogram-bitmap_34: 1910436695
+      monogram-bitmap_35: 275893400
+      monogram-bitmap_36: 171413908
+      monogram-bitmap_37: 1909865964
+      monogram-bitmap_38: 1285158691
+      monogram-bitmap_39: 1453093395
+      monogram-bitmap_4: -1791661346
+      monogram-bitmap_40: -866556956
+      monogram-bitmap_41: -645208666
+      monogram-bitmap_42: 241182171
+      monogram-bitmap_43: -1287710573
+      monogram-bitmap_44: 1957449269
+      monogram-bitmap_45: -734833686
+      monogram-bitmap_46: 820350192
+      monogram-bitmap_47: 588162392
+      monogram-bitmap_48: 464173993
+      monogram-bitmap_49: 300234526
+      monogram-bitmap_5: 166763979
+      monogram-bitmap_50: 1273801508
+      monogram-bitmap_51: 1633298927
+      monogram-bitmap_52: 1452142498
+      monogram-bitmap_53: 2071735284
+      monogram-bitmap_54: -2109329059
+      monogram-bitmap_55: 1890826426
+      monogram-bitmap_56: 175399356
+      monogram-bitmap_57: -763734450
+      monogram-bitmap_58: -2059037359
+      monogram-bitmap_59: 395717435
+      monogram-bitmap_6: -199343973
+      monogram-bitmap_60: -1706758024
+      monogram-bitmap_61: 944845812
+      monogram-bitmap_62: 62103385
+      monogram-bitmap_63: 302719437
+      monogram-bitmap_64: -1425284769
+      monogram-bitmap_65: -1420667575
+      monogram-bitmap_66: -1955510869
+      monogram-bitmap_67: -1053364348
+      monogram-bitmap_68: -64320042
+      monogram-bitmap_69: 2088485457
+      monogram-bitmap_7: 1956521313
+      monogram-bitmap_70: 1475871122
+      monogram-bitmap_71: 2060909702
+      monogram-bitmap_72: -1404656721
+      monogram-bitmap_73: -1301660041
+      monogram-bitmap_74: -1779026562
+      monogram-bitmap_75: 1184374318
+      monogram-bitmap_76: -595553011
+      monogram-bitmap_77: -1400289677
+      monogram-bitmap_78: 576949197
+      monogram-bitmap_79: 2093701276
+      monogram-bitmap_8: 550867679
+      monogram-bitmap_80: 1518868124
+      monogram-bitmap_81: -346911607
+      monogram-bitmap_82: -752285454
+      monogram-bitmap_83: -376999160
+      monogram-bitmap_84: -1016681519
+      monogram-bitmap_85: -1173843344
+      monogram-bitmap_86: 1051949119
+      monogram-bitmap_87: 554348502
+      monogram-bitmap_9: -998850478
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

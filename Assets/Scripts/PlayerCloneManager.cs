@@ -5,6 +5,12 @@ public class PlayerCloneManager : MonoBehaviour
 {
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private float colorChangeSpeed = 2f; // Speed of the RGB effect
+
+    [SerializeField] Material normalMaterial;
+    [SerializeField] Material outlineMaterial;
+
+    private Material outlineMaterialInstance; // Instance of the material for this specific object
 
     [Header("SFX")]
     [SerializeField] private AudioClip cloneSound;
@@ -18,19 +24,25 @@ public class PlayerCloneManager : MonoBehaviour
 
     private bool isDissolved = false;
     private bool startDissolving = false;
+
     private void Start()
     {
         cloneHolder = null;
+        // Create an instance of the outline material to ensure it's unique to this object
+        outlineMaterialInstance = new Material(outlineMaterial);
+        // Apply the instance material to the object's renderer
+        GetComponent<SpriteRenderer>().material = normalMaterial;
     }
 
     private void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.C) && canPressCAgain && !cloneButtonPressed)
+        if (Input.GetKeyDown(KeyCode.C) && canPressCAgain && !cloneButtonPressed && GetComponent<IntroLevelScript>().WasFirstCheckPointTriggered() && GetComponent<IntroLevelScript>().WasSecondCheckPointTriggered())
         {
             AudioController.instance.PlaySound(cloneSound);
             StartCoroutine(InstantiateClone());
             disablePlayer();
+            GetComponent<SpriteRenderer>().material = outlineMaterialInstance;
             cloneButtonPressed = true;
             canPressCAgain = false;
             StartCoroutine(CanPressCAgain());
@@ -42,6 +54,7 @@ public class PlayerCloneManager : MonoBehaviour
             print("Start Dissolving set to true");
             disableClone();
             enablePlayer();
+            GetComponent<SpriteRenderer>().material = normalMaterial;
             cloneHolder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             cloneHolder.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             cloneHolder.GetComponent<PolygonCollider2D>().enabled = false;
@@ -49,6 +62,17 @@ public class PlayerCloneManager : MonoBehaviour
             canPressCAgain = false;
             StartCoroutine(CanPressCAgain());
             switchButtonPressed = false;
+        }
+
+        if (outlineMaterialInstance != null)
+        {
+            // Generate RGB values using a sine wave to create a smooth transition
+            float r = Mathf.Sin(Time.time * colorChangeSpeed) * 0.5f + 0.5f; // Value between 0 and 1
+            float g = Mathf.Sin(Time.time * colorChangeSpeed + 2f) * 0.5f + 0.5f;
+            float b = Mathf.Sin(Time.time * colorChangeSpeed + 4f) * 0.5f + 0.5f;
+
+            // Set the outline color for the material instance
+            outlineMaterialInstance.SetColor("_Color", new Color(r, g, b));
         }
 
         Debug.Log("Current fade value: " + fade);

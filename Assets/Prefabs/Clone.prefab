@@ -153,6 +153,7 @@ MonoBehaviour:
   tr: {fileID: 1474858994416014076}
   jumpSFX: {fileID: 8300000, guid: 88a34771e9b554cca9c79baa4ba717d7, type: 3}
   footStepsSFX: {fileID: 8300000, guid: 04f8a264261144de3849c2699f9ec4dd, type: 3}
+  dialogObject: {fileID: 9059049030029370663, guid: 2a7576eda578cdf428847899fc5fd4dc, type: 3}
 --- !u!95 &5985421272264732898
 Animator:
   serializedVersion: 5

@@ -90,6 +90,9 @@ public class PlayerMovement : MonoBehaviour
 
     #endregion
 
+    [SerializeField] private GameObject dialogObject;
+
+    private bool FirstCheckPointTriggered = false;
 
 
 
@@ -108,11 +111,19 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+
+
+        FirstCheckPointTriggered = GameObject.Find("Player").GetComponent<IntroLevelScript>().WasFirstCheckPointTriggered();
+
+
+
+
         if (Time.timeScale != 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
             playerAnimator.SetBool("isGrounded", IsGrounded());
             playerAnimator.SetBool("isOnWall", IsTouchingWall());
+            dialogObject.transform.position = transform.position;
 
         }
 
@@ -145,8 +156,8 @@ public class PlayerMovement : MonoBehaviour
                 jumpBufferCounter -= Time.deltaTime;
             }
 
-            if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0f)
-            {   
+            if (Input.GetButtonDown("Jump") && coyoteTimeCounter > 0f && FirstCheckPointTriggered)
+            {
                 AudioController.instance.PlaySound(jumpSFX);
                 playerAnimator.SetTrigger("jumpTrigger");
                 rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -186,7 +197,7 @@ public class PlayerMovement : MonoBehaviour
                     Flip();
             }
 
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && horizontal != 0)
+            if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && canDash && horizontal != 0 && FirstCheckPointTriggered)
             {
                 StartCoroutine(Dash());
             }
